@@ -28,5 +28,10 @@ class Table
         $values = DB::table($table)->get();
         return ['fields' => $fields, 'values' => $values];
     }
+
+    public static function UpdateTable($table, $id, $request)
+    {
+       DB::table($table)->where('id', $id)->update($request);
+    }
 }
 

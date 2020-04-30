@@ -14,9 +14,10 @@
       <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('home') }}">
           <i class="material-icons">dashboard</i>
-            <p>{{ __('Dashboard') }}</p>
+            <p>{{ __('Formularios') }}</p>
         </a>
       </li>
+        @if (Auth::user()->role_id <= 2)
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
         <a class="nav-link collapsed" data-toggle="collapse" href="#laravelExample" aria-expanded="false">
             <i class="material-icons">account_box</i>
@@ -41,20 +42,15 @@
           </ul>
         </div>
       </li>
+        @endif
+      @if (Auth::user()->role_id <= 4)
       <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('table') }}">
           <i class="material-icons">content_paste</i>
             <p>{{ __('Tablas') }}</p>
         </a>
       </li>
-
-      <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('notifications') }}">
-          <i class="material-icons">notifications</i>
-          <p>{{ __('Notifications') }}</p>
-        </a>
-      </li>
-
+      @endif
     </ul>
   </div>
 </div>

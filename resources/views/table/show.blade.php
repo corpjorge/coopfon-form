@@ -13,27 +13,33 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 text-right">
-                                    <a href="#" class="btn btn-sm btn-primary">Descargar</a>
+                                    <a href=" {{ url('table/'.$table.'/export') }}" class="btn btn-sm btn-primary">Descargar</a>
                                 </div>
                             </div>
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table" id="table">
                                     <thead class=" text-primary">
                                     @foreach($fields as $field)
-                                    <th>
+                                    <th class="tabledit-view-mode">
                                         {{$field}}
                                     </th>
                                     @endforeach
                                     </thead>
                                     <tbody>
                                     @foreach($values as $row)
-                                    <tr>
-                                        @foreach($row as $data)
-                                        <td>
-                                            {{ $data }}
-                                        </td>
-                                        @endforeach
-                                    </tr>
+                                        <tr>
+                                            @foreach($fields as $field)
+                                                <td>
+                                                    <form action="{{url('table/'.$table.'/'.$row->id )}}" method="post">
+                                                        @csrf
+                                                        <input type="text" value="{{$row->$field}}" name="{{$field}}">
+                                                        <button class="btn btn-primary btn-sm" style="padding: 0;">
+                                                            <i class="material-icons">save</i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            @endforeach
+                                        </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
@@ -44,4 +50,59 @@
             </div>
         </div>
     </div>
+
+
+    @push('js')
+        <script>
+            $("form").submit(function(e) {
+                e.preventDefault();
+                var actionurl = e.currentTarget.action;
+                $.ajax({
+                    url: actionurl,
+                    type: 'post',
+                    //dataType: 'application/json',
+                    dataType: 'text',
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        console.log(data);
+                        console.log('data');
+
+                       $.notify(
+                        {
+                            icon: "add_alert",
+                            message: "Dato guardado"
+
+                        },
+                        {
+                            type: 'success',
+                            timer: 4000,
+                            placement: {
+                                from: 'top',
+                                align: 'left'
+                            }
+                        });
+
+                    },
+                    error: function(e){
+                        $.notify(
+                            {
+                                icon: "add_alert",
+                                message: "Error"
+                            },
+                            {
+                                type: 'danger',
+                                timer: 4000,
+                                placement: {
+                                    from: 'top',
+                                    align: 'left'
+                                }
+                            });
+                    }
+                });
+
+            });
+        </script>
+    @endpush
+
+
 @endsection

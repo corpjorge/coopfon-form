@@ -15,7 +15,9 @@ class CreateDemoTable extends Migration
     {
         Schema::create('f_demos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->string('nombre');
+            $table->string('correo')->unique();
+            $table->string('documento')->nullable();
             $table->string('telefono');
             $table->string('ahorro');
             $table->string('valor');

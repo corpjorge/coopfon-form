@@ -25,19 +25,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-
-
-	Route::get('notifications', function () {
-		return view('pages.notifications');
-	})->name('notifications');
-
-
-});
-
-Route::group(['middleware' => 'auth'], function () {
     Route::resource('form', 'FormController');
     Route::get('table/', 'TableController@index')->name('table');
-    Route::get('table/{tabla}', 'TableController@show');
+    Route::get('table/{table}', 'TableController@show');
+    Route::get('table/{table}/export', 'TableController@export');
+    Route::post('table/{table}/{id}', 'TableController@update');
 
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
