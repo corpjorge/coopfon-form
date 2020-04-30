@@ -40,7 +40,7 @@
     <meta property="og:image" content="https://s3.amazonaws.com/creativetim_bucket/products/154/opt_md_laravel_thumbnail.jpg"/>
     <meta property="og:description" content="Material Dashboard Laravel is a Free Material Bootstrap Admin Preset for Laravel with a fresh, new design inspired by Google's Material Design." />
     <meta property="og:site_name" content="Creative Tim" />
-    
+
     <title>{{ __('Material Dashboard Laravel - Free Frontend Preset for Laravel') }}</title>
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('material') }}/img/apple-icon.png">
     <link rel="icon" type="image/png" href="{{ asset('material') }}/img/favicon.png">
@@ -72,7 +72,7 @@
             <div class="sidebar" data-color="orange" data-background-color="white" data-image="{{ asset('material') }}/img/sidebar-1.jpg">
               <!--
                   Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-            
+
                   Tip 2: you can also add an image using data-image tag
               -->
               <div class="logo">
@@ -112,48 +112,7 @@
                       </ul>
                     </div>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('table') }}">
-                      <i class="material-icons">content_paste</i>
-                        <p>{{ __('Table List') }}</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('typography') }}">
-                      <i class="material-icons">library_books</i>
-                        <p>{{ __('Typography') }}</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('icons') }}">
-                      <i class="material-icons">bubble_chart</i>
-                      <p>{{ __('Icons') }}</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('map') }}">
-                      <i class="material-icons">location_ons</i>
-                        <p>{{ __('Maps') }}</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('notifications') }}">
-                      <i class="material-icons">notifications</i>
-                      <p>{{ __('Notifications') }}</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('language') }}">
-                      <i class="material-icons">language</i>
-                      <p>{{ __('RTL Support') }}</p>
-                    </a>
-                  </li>
-                  <li class="nav-item active-pro">
-                    <a class="nav-link" href="{{ route('upgrade') }}">
-                      <i class="material-icons">unarchive</i>
-                      <p>{{ __('Upgrade to PRO') }}</p>
-                    </a>
-                  </li>
+
                 </ul>
               </div>
             </div>
@@ -165,7 +124,7 @@
     <a class="navbar-brand" href="#">User Management</a>
   </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-    
+
   <span class="sr-only">Toggle navigation</span>
   <span class="navbar-toggler-icon icon-bar"></span>
   <span class="navbar-toggler-icon icon-bar"></span>
@@ -324,7 +283,7 @@
 </footer>
 </div>
 </div>
-                      
+
       <div class="fixed-plugin">
         <div class="dropdown show-dropdown">
           <a href="#" data-toggle="dropdown">
