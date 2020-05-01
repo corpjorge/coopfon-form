@@ -45,7 +45,7 @@
                                                         @endif
                                                     @endif
                                                     @if (Auth::user()->area == '')
-                                                        @if($field == "aprobacion")
+                                                        @if($field == "fecha_aplicacion")
                                                             <form action="{{url('table/'.$table.'/'.$row->id )}}" method="post">
                                                                 @csrf
                                                                 <input type="text" value="{{$row->$field}}" name="{{$field}}">
