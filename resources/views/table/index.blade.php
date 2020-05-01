@@ -29,7 +29,7 @@
                     </td>
                     <td>
                         <a rel="tooltip" class="btn btn-success btn-link" href="{{ url('table/'.$table) }}" data-original-title="" title="">
-                           <i class="material-icons">eye</i>
+                           <i class="material-icons">remove_red_eye</i>
                            <div class="ripple-container"></div>
                         </a>
                     </td>
