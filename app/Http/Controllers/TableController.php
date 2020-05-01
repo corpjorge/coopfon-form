@@ -7,13 +7,11 @@ use App\Exports\TableExport;
 use Illuminate\Http\Request;
 use App\Table;
 
-use DB;
 class TableController extends Controller
 {
     public function index()
     {
         $tables = Table::TableList();
-
         return view('table.index', [ 'tables' => $tables]);
     }
 
@@ -29,10 +27,13 @@ class TableController extends Controller
 
     public function update(Request $request, $table, $id)
     {
+        $date =  date('Y-m-d H:i:s');
+
         foreach ($request->all() as $key => $value){
             if ($key != '_token'){
                 $data = array(
                     $key => $value,
+                    'updated_at' => $date
                 );
             }
         }

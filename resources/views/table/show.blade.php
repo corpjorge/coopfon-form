@@ -30,13 +30,33 @@
                                         <tr>
                                             @foreach($fields as $field)
                                                 <td>
-                                                    <form action="{{url('table/'.$table.'/'.$row->id )}}" method="post">
-                                                        @csrf
-                                                        <input type="text" value="{{$row->$field}}" name="{{$field}}">
-                                                        <button class="btn btn-primary btn-sm" style="padding: 0;">
-                                                            <i class="material-icons">save</i>
-                                                        </button>
-                                                    </form>
+
+                                                    @if (Auth::user()->area == $row->area)
+                                                        @if($field == "fecha_aplicacion")
+                                                        <form action="{{url('table/'.$table.'/'.$row->id )}}" method="post">
+                                                            @csrf
+                                                            <input type="text" value="{{$row->$field}}" name="{{$field}}">
+                                                            <button class="btn btn-primary btn-sm" style="padding: 0;">
+                                                                <i class="material-icons">save</i>
+                                                            </button>
+                                                        </form>
+                                                        @else
+                                                            {{$row->$field}}
+                                                        @endif
+                                                    @endif
+                                                    @if (Auth::user()->area == '')
+                                                        @if($field == "aprobacion")
+                                                            <form action="{{url('table/'.$table.'/'.$row->id )}}" method="post">
+                                                                @csrf
+                                                                <input type="text" value="{{$row->$field}}" name="{{$field}}">
+                                                                <button class="btn btn-primary btn-sm" style="padding: 0;">
+                                                                    <i class="material-icons">save</i>
+                                                                </button>
+                                                            </form>
+                                                        @else
+                                                            {{$row->$field}}
+                                                        @endif
+                                                    @endif
                                                 </td>
                                             @endforeach
                                         </tr>
@@ -54,7 +74,7 @@
 
     @push('js')
         <script>
-            $("form").submit(function(e) {
+           /* $("form").submit(function(e) {
                 e.preventDefault();
                 var actionurl = e.currentTarget.action;
                 $.ajax({
@@ -100,7 +120,7 @@
                     }
                 });
 
-            });
+            });*/
         </script>
     @endpush
 
