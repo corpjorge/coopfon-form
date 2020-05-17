@@ -44,12 +44,19 @@
       </li>
         @endif
       @if (Auth::user()->role_id <= 4)
-      <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
+      <li class="nav-item{{ $activePage == 'ahorros' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ url('ahorros') }}">
+          <i class="material-icons">content_paste</i>
+            <p>{{ __('ahorros') }}</p>
+        </a>
+      </li>
+
+      {{--<li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('table') }}">
           <i class="material-icons">content_paste</i>
             <p>{{ __('Tablas') }}</p>
         </a>
-      </li>
+      </li>--}} 
       @endif
     </ul>
   </div>

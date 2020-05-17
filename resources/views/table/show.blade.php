@@ -29,34 +29,14 @@
                                     @foreach($values as $row)
                                         <tr>
                                             @foreach($fields as $field)
-                                                <td>
-
-                                                    @if (Auth::user()->area == $row->area)
-                                                        @if($field == "fecha_aplicacion")
-                                                        <form action="{{url('table/'.$table.'/'.$row->id )}}" method="post">
-                                                            @csrf
-                                                            <input type="text" value="{{$row->$field}}" name="{{$field}}">
-                                                            <button class="btn btn-primary btn-sm" style="padding: 0;">
-                                                                <i class="material-icons">save</i>
-                                                            </button>
-                                                        </form>
-                                                        @else
-                                                            {{$row->$field}}
-                                                        @endif
-                                                    @endif
-                                                    @if (Auth::user()->area == '')
-                                                        @if($field == "fecha_aplicacion")
-                                                            <form action="{{url('table/'.$table.'/'.$row->id )}}" method="post">
-                                                                @csrf
-                                                                <input type="text" value="{{$row->$field}}" name="{{$field}}">
-                                                                <button class="btn btn-primary btn-sm" style="padding: 0;">
-                                                                    <i class="material-icons">save</i>
-                                                                </button>
-                                                            </form>
-                                                        @else
-                                                            {{$row->$field}}
-                                                        @endif
-                                                    @endif
+                                                <td>                                                    
+                                                    <form action="{{url('table/'.$table.'/'.$row->id )}}" method="post">
+                                                        @csrf
+                                                        <input type="text" value="{{$row->$field}}" name="{{$field}}">
+                                                        <button class="btn btn-primary btn-sm" style="padding: 0;">
+                                                            <i class="material-icons">save</i>
+                                                        </button>
+                                                    </form> 
                                                 </td>
                                             @endforeach
                                         </tr>
