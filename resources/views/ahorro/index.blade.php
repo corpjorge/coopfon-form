@@ -47,6 +47,9 @@
                         {{ __('ahorro') }}
                       </th>
                       <th>
+                        {{ __('solicitud') }}
+                      </th>                      
+                      <th>
                         {{ __('valor') }}
                       </th>
                       <th>
@@ -90,6 +93,9 @@
                           <td>
                             {{ $ahorro->ahorro }}
                           </td>
+                          <td>
+                            {{ $ahorro->solicitud }}
+                          </td>                          
                           <td>
                             {{ $ahorro->valor }}
                           </td>
