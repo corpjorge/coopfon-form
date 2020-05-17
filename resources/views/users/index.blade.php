@@ -38,6 +38,9 @@
                         {{ __('Email') }}
                       </th>
                       <th>
+                        {{ __('Area/Zona') }}
+                      </th>
+                      <th>
                         {{ __('Fecha de creación') }}
                       </th>
                       <th class="text-right">
@@ -52,6 +55,9 @@
                           </td>
                           <td>
                             {{ $user->email }}
+                          </td>
+                          <td>
+                            {{ $user->area }}
                           </td>
                           <td>
                             {{ $user->created_at->format('Y-m-d') }}

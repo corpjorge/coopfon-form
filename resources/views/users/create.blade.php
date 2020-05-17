@@ -61,7 +61,20 @@
                     </div>
                   </div>
                 </div>
+                <div class="row">
+                  <label class="col-sm-2 col-form-label">{{ __('Area/Zona') }}</label>
+                  <div class="col-sm-7">
+                    <div class="form-group{{ $errors->has('area') ? ' has-danger' : '' }}">
+                      <input class="form-control{{ $errors->has('area') ? ' is-invalid' : '' }}" name="area" id="input-area" type="text" placeholder="{{ __('Area/Zona') }}" value="{{ old('area') }}" required="true" aria-required="true"/>
+                      @if ($errors->has('area'))
+                        <span id="name-error" class="error text-danger" for="input-area">{{ $errors->first('area') }}</span>
+                      @endif
+                    </div>
+                  </div>
+                </div>
               </div>
+              
+              
               <div class="card-footer ml-auto mr-auto">
                 <button type="submit" class="btn btn-primary">{{ __('Agregar usuario') }}</button>
               </div>

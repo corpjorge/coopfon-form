@@ -44,6 +44,7 @@ class UserController extends Controller
         $user->state_id = 1;
         $user->name = $request->name;
         $user->email= $request->email;
+        $user->area= $request->area;
         $user->password= Hash::make($request->password);
         $user->save();
 
