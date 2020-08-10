@@ -17,7 +17,7 @@ class AhorroController extends Controller
      */
     public function index(Ahorro $model)
     {
-        return view('ahorro.index', ['ahorros' => $model->paginate(15)]);
+        return view('ahorro.index', ['ahorros' => $model->orderBy('id', 'desc')->paginate(15)]);
     }
 
     /**

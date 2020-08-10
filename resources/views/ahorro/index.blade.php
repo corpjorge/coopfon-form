@@ -129,9 +129,12 @@
                         </tr>
                       @endforeach
                     </tbody>
+
+                    {{ $ahorros->links() }}
                   </table>
                 </div>
               </div>
+              {{ $ahorros->links() }}
             </div>
         </div>
       </div>
