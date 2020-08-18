@@ -51,6 +51,13 @@
         </a>
       </li>
 
+      <li class="nav-item{{ $activePage == 'creditos' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ url('creditos') }}">
+          <i class="material-icons">content_paste</i>
+            <p>{{ __('Créditos') }}</p>
+        </a>
+      </li>
+
       {{--<li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('table') }}">
           <i class="material-icons">content_paste</i>

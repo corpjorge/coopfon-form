@@ -25,20 +25,16 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 
-
 Route::group(['middleware' => 'auth'], function () {
+
     Route::resource('form', 'FormController');
     Route::get('table/', 'TableController@index')->name('table');
     Route::get('table/{table}', 'TableController@show');
     Route::get('table/{table}/export', 'TableController@export');
-    Route::post('table/{table}/{id}', 'TableController@update');
-
-    /*Route::get('/ahorros', 'AhorroController@index')->name('ahorros');  
-    Route::get('/ahorros/create', 'AhorroController@create')->name('ahorros.create');
-    Route::post('/ahorros', 'AhorroController@store')->name('ahorros.store');  
-    Route::put('/ahorros/{ahorro}', 'AhorroController@update')->name('ahorros.update');*/
+    Route::post('table/{table}/{id}', 'TableController@update'); 
 
     Route::resource('ahorros', 'AhorroController');
+    Route::resource('creditos', 'CreditoController');
 
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
