@@ -71,6 +71,9 @@
                         {{ __('estado') }}
                       </th>
                       <th>
+                        {{ __('usuario') }}
+                      </th>
+                      <th>
                         {{ __('fecha de aplicacion') }}
                       </th>
                        
@@ -115,14 +118,25 @@
                           <td>
                             {{ $ahorro->fecha_de_solicitud }}
                           </td>
-                          <td>
+                          <td style="width: 50%;">
                             <form action="{{url('ahorros/'.$ahorro->id)}}" method="post">
                               @csrf  
-                              @method('PUT')                               
-                              <input type="text" value="{{ $ahorro->estado }}" name="estado" />                               
+                              @method('PUT') 
+                              <input type="hidden" name="user" value="{{auth()->user()->name}}"> 
+                                <select class="form-control" id="exampleFormControlSelect1" name="estado">
+                                  <option value="{{ $ahorro->estado }}">{{ $ahorro->estado }}</option>
+                                  <option>En Análisis</option>
+                                  <option>En comité y/o Gerencia</option>
+                                  <option>En tesorería</option>
+                                  <option>Negado y/o Anulado</option>
+                                  <option>Devuelto</option>
+                                </select>                   
                               <button type="submit" class="btn btn-primary btn-lg btn-block btn-sm">Cambiar</button>                            
                             </form>                     
                           </td>
+                          <td>
+                            {{ $ahorro->user }}
+                          </td> 
                           <td>
                             {{ $ahorro->Updated_at }}
                           </td>                                                    

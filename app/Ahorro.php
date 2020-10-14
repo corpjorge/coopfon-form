@@ -8,5 +8,5 @@ class Ahorro extends Model
 {
     protected $table = 'f_ahorros';
     
-    protected $fillable = ['estado'];
+    protected $fillable = ['estado', 'user'];
 }

@@ -56,6 +56,9 @@
                         {{ __('estado') }}
                       </th>
                       <th>
+                        {{ __('usuario') }}
+                      </th>
+                      <th>
                         {{ __('fecha de aplicacion') }}
                       </th>
                        
@@ -76,8 +79,7 @@
                             {{ $dato->email }}
                           </td> 
                           <td>
-                          <a href="http://www.fonmibus.co//modulos/servicios/creditos/{{ $dato->soporte }}"  target="_blank"><i class="fa fa-file-image-o" aria-hidden="true"></i></a>
-                            
+                          <a href="http://www.fonmibus.co//modulos/servicios/creditos/{{ $dato->soporte }}"  target="_blank"><i class="fa fa-file-image-o" aria-hidden="true"></i></a>                            
                           </td>                           
                           <td>
                             {{ $dato->confirmacion }}
@@ -88,10 +90,22 @@
                           <td>
                             <form action="{{url('creditos/'.$dato->id)}}" method="post">
                               @csrf  
-                              @method('PUT')                               
-                              <input type="text" value="{{ $dato->estado }}" name="estado" />                               
+                              @method('PUT') 
+                              <input type="hidden" name="user" value="{{auth()->user()->name}}"> 
+                              <select class="form-control" id="exampleFormControlSelect1" name="estado">
+                                  <option value="{{ $dato->estado }}">{{ $dato->estado }}</option>
+                                  <option>En Análisis</option>
+                                  <option>En comité y/o Gerencia</option>
+                                  <option>En tesorería</option>
+                                  <option>Negado y/o Anulado</option>
+                                  <option>Devuelto</option>
+                                </select>                              
+                                                       
                               <button type="submit" class="btn btn-primary btn-lg btn-block btn-sm">Cambiar</button>                            
                             </form>                     
+                          </td>
+                          <td>
+                            {{ $dato->user }}
                           </td>
                           <td>
                             {{ $dato->Updated_at }}
