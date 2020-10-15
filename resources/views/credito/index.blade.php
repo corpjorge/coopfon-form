@@ -79,7 +79,7 @@
                             {{ $dato->email }}
                           </td> 
                           <td>
-                          <a href="http://www.fonmibus.co//modulos/servicios/creditos/{{ $dato->soporte }}"  target="_blank"><i class="fa fa-file-image-o" aria-hidden="true"></i></a>                            
+                          <a href="http://www.fonmibus.co/modulos/servicios/creditos/{{ $dato->soporte }}"  target="_blank"><i class="fa fa-file-image-o" aria-hidden="true"></i></a>                            
                           </td>                           
                           <td>
                             {{ $dato->confirmacion }}

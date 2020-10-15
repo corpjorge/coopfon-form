@@ -4,7 +4,7 @@
 <div class="container" style="height: auto;">
   <div class="row justify-content-center">
       <div class="col-lg-7 col-md-8">
-          <h1 class="text-white text-center">{{ __('Formularios') }}</h1>
+          <h1 class="text-white text-center">{{ __('Registro de información web') }}</h1>
       </div>
   </div>
 </div>

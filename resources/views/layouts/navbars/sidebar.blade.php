@@ -58,6 +58,13 @@
         </a>
       </li>
 
+      <li class="nav-item{{ $activePage == 'auxilios' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ url('auxilios') }}">
+          <i class="material-icons">content_paste</i>
+            <p>{{ __('Auxilios') }}</p>
+        </a>
+      </li>
+
       {{--<li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('table') }}">
           <i class="material-icons">content_paste</i>
